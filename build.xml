@@ -83,12 +83,12 @@
   </target>
 
   <target name="jar" depends="compile">
-    <jar jarfile="${dist}/Compiler.jar" basedir="${classes}">
-     <manifest>
-       <attribute name="Main-Class" value="${base_package_name}.Main" />
-       <!-- ANTLR runtime is needed for parsing! -->
-       <attribute name="Class-Path" value="antlr.jar" />
-     </manifest>
+    <jar destfile="${dist}/Compiler.jar" basedir="${classes}">
+      <manifest>
+        <attribute name="Main-Class" value="${base_package_name}.Main" />
+        <!-- ANTLR runtime is needed for parsing! -->
+        <attribute name="Class-Path" value="../lib/antlr.jar" />
+      </manifest>
     </jar>
     <!-- Third party libraries can only be found by java -jar if they
          reside in the same dir but we don't a billion copies floating around,
