@@ -171,10 +171,10 @@ public class CLI {
           } else {
             for (int k = 0; k < optnames.length; k++) {
               if (optsList[j].equals(optnames[k])) {
-                opts[j] = true;
+                opts[k] = true;
               } else if (optsList[j].charAt(0) == '-' || 
                          optsList[j].substring(1).equals(optnames[k])) {
-                opts[j] = false;
+                opts[k] = false;
               }
             }
           }
