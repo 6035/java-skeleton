@@ -157,7 +157,7 @@ public class CLI {
             optsList = args[i + 1].split(",");
             i++;
           } else {
-            printUsage("No optimizations spceified with option " + args[i]);
+            printUsage("No optimizations specified with option " + args[i]);
             throw new IllegalArgumentException("Incomplete option " + args[i]);
           }
         } else {
@@ -172,7 +172,7 @@ public class CLI {
             for (int k = 0; k < optnames.length; k++) {
               if (optsList[j].equals(optnames[k])) {
                 opts[k] = true;
-              } else if (optsList[j].charAt(0) == '-' || 
+              } else if (optsList[j].charAt(0) == '-' && 
                          optsList[j].substring(1).equals(optnames[k])) {
                 opts[k] = false;
               }
