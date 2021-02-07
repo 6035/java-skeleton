@@ -96,62 +96,6 @@
     <symlink link="${dist}/antlr.jar" resource="${lib}/antlr.jar"
              overwrite="true" />
   </target>
-
-  <target name="test_scanner" depends="jar">
-    <!-- Set failonerror="true" when you're confident you're correct
-         and want to prevent accidentally regressing. -->
-    <exec executable="${tests}/scanner/test.sh" />
-  </target>
-
-  <target name="test_parser" depends="jar">
-    <!-- Set failonerror="true" when you're confident you're correct
-         and want to prevent accidentally regressing. -->
-    <exec executable="${tests}/parser/test.sh" />
-  </target>
-
-  <target name="test_semantics" depends="jar">
-    <!-- Set failonerror="true" when you're confident you're correct
-         and want to prevent accidentally regressing. -->
-    <exec executable="${tests}/semantics/test.sh" />
-  </target>
-
-  <target name="test_codegen" depends="jar">
-    <!-- Set failonerror="true" when you're confident you're correct
-         and want to prevent accidentally regressing. -->
-    <exec executable="${tests}/codegen/test.sh" />
-  </target>
-
-  <target name="test_dataflow" depends="jar">
-    <!-- Set failonerror="true" when you're confident you're correct
-         and want to prevent accidentally regressing. -->
-    <exec executable="${tests}/dataflow/test.sh" />
-  </target>
-
-  <target name="test_opt" depends="jar">
-    <!-- Set failonerror="true" when you're confident you're correct
-         and want to prevent accidentally regressing. -->
-    <exec executable="${tests}/optimizer/test.sh" />
-  </target>
-
-  <target name="integrationtests"
-          depends="test_scanner,test_parser,test_semantics,test_codegen,test_dataflow,test_opt">
-  </target>
-
-  <target name="tar" depends="clean">
-    <delete file="${env.USER}-handin.tar.gz" />
-    <delete file="${env.USER}-handin.tar" />
-    <tar destfile="${env.USER}-handin.tar">
-      <tarfileset dir="."
-                  prefix="${env.USER}-handin/">
-        <include name="**/*" />
-        <exclude name="*.tar" />
-        <exclude name="*.tar.gz" />
-        <exclude name="**/.git/**" />
-      </tarfileset>
-    </tar>
-    <gzip destfile="${env.USER}-handin.tar.gz"
-          src="${env.USER}-handin.tar" />
-  </target>
   
  <!-- to clean, delete everything in the autogen, classes, and dist
   directory -->
